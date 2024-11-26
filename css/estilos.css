@@ -67,6 +67,21 @@ h2 {
     background: linear-gradient(135deg, #9d4edd, #6a0dad);
 }
 
+/* Estilo adicional para el nuevo estado del Bento Grid */
+#bentoGrid {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Estilo para los elementos dentro del bento cuando cambian */
+.grid.changed {
+    background-color: #9d4edd; /* Fondo morado */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.5rem; /* Texto más grande */
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
 /* Íconos */
 .icon {
     width: 3rem;
@@ -102,53 +117,21 @@ a {
     }
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #2e003e;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-}
-
-h1 {
-    font-size: 4rem;
-    color: #d4b0ff;
-    text-shadow: 2px 2px 4px #1a0029;
-    margin-bottom: 2rem;
-}
-
-.descripcion {
-    font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
-    color: #fff;
-    margin: 20px 0;
-}
-
+/* Botón centrado */
 button {
-    background: linear-gradient(135deg, #9d4edd, #6a0dad);
-    color: #fff;
+    background: linear-gradient(135deg, #4b007d, #9d4edd);
+    color: white;
     font-size: 1.2rem;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     border: none;
-    border-radius: 0.75rem;
-    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    padding: 1rem 2rem;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 1rem;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 button:hover {
-    background: linear-gradient(135deg, #c292f2, #9d4edd);
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-button:active {
-    transform: translateY(2px) scale(1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #9d4edd, #c292f2);
 }
