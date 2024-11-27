@@ -1,26 +1,52 @@
-// Selecciona el botón y el contenedor grid
-const boton = document.getElementById('cambiarEstilo');
-const bentoGrid = document.getElementById('bentoGrid');
+// Seleccionar el botón y el contenedor
+const botonCambiarEstilo = document.getElementById('changeStyleButton');
+const contenedorBento = document.getElementById('bentoGrid');
 
-// Función que aplica los nuevos estilos
-function cambiarEstilo() {
-    // Cambiar el fondo de la grid
-    bentoGrid.style.backgroundColor = '#1e1e2f';
-    bentoGrid.style.borderRadius = '15px';
-    bentoGrid.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
-    bentoGrid.style.padding = '2rem';
+// Variable para rastrear el estado actual
+let estiloPersonalizado = false;
 
-    // Modificar los elementos internos
-    const elementos = bentoGrid.children;
-    for (let i = 0; i < elementos.length; i++) {
-        elementos[i].style.backgroundColor = '#9d4edd'; // Fondo morado
-        elementos[i].style.color = '#ffffff'; // Texto blanco
-        elementos[i].style.fontSize = '1.5rem'; // Tamaño del texto
-        elementos[i].style.borderRadius = '10px'; // Bordes redondeados
-        elementos[i].style.padding = '1rem';
-        elementos[i].style.transition = 'all 0.3s ease'; // Animación
+// Función para cambiar los estilos
+function cambiarEstiloBento() {
+    if (!estiloPersonalizado) {
+        // Aplicar estilos personalizados
+        contenedorBento.style.backgroundColor = '#1e1e2f';
+        contenedorBento.style.padding = '2rem';
+        contenedorBento.style.borderRadius = '15px';
+        contenedorBento.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+
+        // Cambiar estilo de los elementos individuales
+        const elementosGrid = contenedorBento.querySelectorAll('.grid');
+        elementosGrid.forEach(elemento => {
+            elemento.style.backgroundColor = '#9d4edd';
+            elemento.style.color = '#ffffff';
+            elemento.style.fontFamily = 'Comic Sans MS, cursive, sans-serif';
+            elemento.style.fontSize = '1.2rem';
+            elemento.style.borderRadius = '10px';
+            elemento.style.padding = '1rem';
+            elemento.style.transition = 'all 0.3s ease';
+        });
+    } else {
+        // Restaurar estilos originales
+        contenedorBento.style.backgroundColor = '';
+        contenedorBento.style.padding = '';
+        contenedorBento.style.borderRadius = '';
+        contenedorBento.style.boxShadow = '';
+
+        // Restaurar estilo de los elementos individuales
+        const elementosGrid = contenedorBento.querySelectorAll('.grid');
+        elementosGrid.forEach(elemento => {
+            elemento.style.backgroundColor = '';
+            elemento.style.color = '';
+            elemento.style.fontFamily = '';
+            elemento.style.fontSize = '';
+            elemento.style.borderRadius = '';
+            elemento.style.padding = '';
+        });
     }
+
+    // Alternar el estado
+    estiloPersonalizado = !estiloPersonalizado;
 }
 
-// Agregar evento al botón
-boton.addEventListener('click', cambiarEstilo);
+// Asignar evento al botón
+botonCambiarEstilo.addEventListener('click', cambiarEstiloBento);
